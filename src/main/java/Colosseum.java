@@ -103,10 +103,127 @@ public class Colosseum {
      *         <p>
      */
     public static Pokemon buildPokemon() {
-        Pokemon returnPokemon = null;
-        return returnPokemon;
+        printTypeMenu();
+        int choice = myScan.nextInt();
+        while (choice != 1 && choice != 2 && choice != 3) {
+            System.out.println("Sorry, please select either Electric, Fire, or Water");
+            printTypeMenu();
+            choice = myScan.nextInt();
+        }
+        if (choice == 1) {
+            return buildElectricType();
+        }
+        if (choice == 2) {
+            return buildFireType();
+        }
+        if (choice == 3) {
+            return buildWaterType();
+        }
+        return null;
+    }
+    /**
+     * makes a fire Pokemon
+     */
+    public static FirePokemon buildFireType() {
+        FirePokemon tempPokemon = new FirePokemon();
+        System.out.println("Please name your Pokemon:");
+        tempPokemon.setName(myScan.next());
+        System.out.println("How many hitpoints will it have?");
+        int hitpoints = myScan.nextInt();
+        while (hitpoints > MAX_HIT_POINTS || hitpoints < 1) {
+            System.out.println("Sorry, hitpoints must be between 1 and 50");
+            hitpoints = myScan.nextInt();
+        }
+        tempPokemon.setHitPoints(hitpoints);
+        System.out.println("Split 50 points between attack level and defense level");
+        System.out.println("Please enter your attack level: 1-49");
+        int attackLevel = myScan.nextInt();
+        while (attackLevel < 1 || attackLevel > MAX_HIT_POINTS - 1) {
+            System.out.println("Sorry. the attack level must be between 1 and 49");
+            attackLevel = myScan.nextInt();
+        }
+        tempPokemon.setAttackLevel(attackLevel);
+        System.out.println("Please enter your defense level: 1 - "
+                + (MAX_HIT_POINTS - attackLevel));
+        int defenseLevel = myScan.nextInt();
+        while (defenseLevel < 1 || defenseLevel > MAX_HIT_POINTS - attackLevel) {
+            System.out.println("Sorry. the attack level must be between 1 and "
+                    + (MAX_HIT_POINTS - attackLevel) + ".");
+            attackLevel = myScan.nextInt();
+        }
+        tempPokemon.setDefenseLevel(defenseLevel);
+        return tempPokemon;
     }
 
+    /**
+     * build electric.
+     * @return the pokemon.
+     */
+    public static ElectricPokemon buildElectricType() {
+        ElectricPokemon tempPokemon = new ElectricPokemon();
+        System.out.println("Please name your Pokemon:");
+        tempPokemon.setName(myScan.next());
+        System.out.println("How many hitpoints will it have?");
+        int hitpoints = myScan.nextInt();
+        while (hitpoints > MAX_HIT_POINTS || hitpoints < 1) {
+            System.out.println("Sorry, hitpoints must be between 1 and 50");
+            hitpoints = myScan.nextInt();
+        }
+        tempPokemon.setHitPoints(hitpoints);
+        System.out.println("Split 50 points between attack level and defense level");
+        System.out.println("Please enter your attack level: 1-49");
+        int attackLevel = myScan.nextInt();
+        while (attackLevel < 1 || attackLevel > MAX_HIT_POINTS - 1) {
+            System.out.println("Sorry. the attack level must be between 1 and 49");
+            attackLevel = myScan.nextInt();
+        }
+        tempPokemon.setAttackLevel(attackLevel);
+        System.out.println("Please enter your defense level: 1 - "
+                + (MAX_HIT_POINTS - attackLevel));
+        int defenseLevel = myScan.nextInt();
+        while (defenseLevel < 1 || defenseLevel > MAX_HIT_POINTS - attackLevel) {
+            System.out.println("Sorry. the attack level must be between 1 and "
+                    + (MAX_HIT_POINTS - attackLevel) + ".");
+            attackLevel = myScan.nextInt();
+        }
+        tempPokemon.setDefenseLevel(defenseLevel);
+        return tempPokemon;
+    }
+
+    /**
+     * makes a water type.
+     * @return the water type.
+     */
+    public static WaterPokemon buildWaterType() {
+        WaterPokemon tempPokemon = new WaterPokemon();
+        System.out.println("Please name your Pokemon:");
+        tempPokemon.setName(myScan.next());
+        System.out.println("How many hitpoints will it have?");
+        int hitpoints = myScan.nextInt();
+        while (hitpoints > MAX_HIT_POINTS || hitpoints < 1) {
+            System.out.println("Sorry, hitpoints must be between 1 and 50");
+            hitpoints = myScan.nextInt();
+        }
+        tempPokemon.setHitPoints(hitpoints);
+        System.out.println("Split 50 points between attack level and defense level");
+        System.out.println("Please enter your attack level: 1-49");
+        int attackLevel = myScan.nextInt();
+        while (attackLevel < 1 || attackLevel > MAX_HIT_POINTS - 1) {
+            System.out.println("Sorry. the attack level must be between 1 and 49");
+            attackLevel = myScan.nextInt();
+        }
+        tempPokemon.setAttackLevel(attackLevel);
+        System.out.println("Please enter your defense level: 1 - "
+                + (MAX_HIT_POINTS - attackLevel));
+        int defenseLevel = myScan.nextInt();
+        while (defenseLevel < 1 || defenseLevel > MAX_HIT_POINTS - attackLevel) {
+            System.out.println("Sorry. the attack level must be between 1 and "
+                    + (MAX_HIT_POINTS - attackLevel) + ".");
+            attackLevel = myScan.nextInt();
+        }
+        tempPokemon.setDefenseLevel(defenseLevel);
+        return tempPokemon;
+    }
     /**
      * Prints who is ahead.
      * <p>
